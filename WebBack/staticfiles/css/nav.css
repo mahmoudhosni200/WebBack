@@ -1,0 +1,223 @@
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ================= NAVBAR MAIN ================== */
+nav {
+    width: 100%;
+    height: 80px;
+    background-color: #f2ebd8;
+    text-transform: uppercase;
+}
+
+/* ------------ Logo ------------ */
+/* Logo inside nav */
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+/* ------------ nav-large (Desktop) ------------ */
+.nav-large {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f2ebd8;
+    height: 80px;
+    padding: 0 40px;
+}
+
+/* Links container */
+.nav-large .nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0 20px;
+    gap: 20px;
+}
+
+/* Each link */
+.nav-large .nav-links li {
+    margin-left: 20px;
+}
+
+/* Link style */
+.nav-large .nav-links li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 17px;
+    position: relative;
+}
+
+/* Hover and active underline */
+.nav-large .nav-links li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: #000000;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+/* Hover: لما تحط الماوس */
+.nav-large .nav-links li a:hover::after {
+    width: 100%;
+}
+
+/* Active: لما تدوس فعلاً */
+.nav-large .nav-links li a.active::after {
+    width: 100%;
+}
+
+/* Search Icon */
+.search {
+    padding-right: 22px;
+    height: 20px;
+    cursor: pointer;
+    color: #000000;
+}
+
+
+/* Buttons */
+.sign-in-btn,
+.logout-btn {
+    padding: 12px 30px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: #3C2712;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+.logout-btn {
+    padding: 8px 15px;
+}
+
+.sign-in-btn:hover {
+    background-color: #8b7069;
+}
+
+.logout-btn:hover {
+    background-color: #cc0000;
+}
+
+/* ------------ nav-small (Mobile) ------------ */
+.nav-small {
+    display: none;
+    background-color: #f2ebd8;
+    height: 80px;
+    padding: 0 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-small .menu-toggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #000000;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+/* ------------ Side menu ------------ */
+.side-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 210px;
+    height: 70%;
+    margin-top: 10px;
+    margin-right: 10px;
+    background-color: #f2ebd8;
+    border-radius: 10px;
+    border: 2px solid #3C2712;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    transition: right 0.3s ease-in-out;
+    padding-top: 30px;
+    z-index: 1000;
+}
+
+.side-menu.open {
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Close button */
+.side-menu .close-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #000000;
+    cursor: pointer;
+}
+
+/* Side menu links */
+.side-menu .nav-links {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin-top: 60px;
+    width: 100%;
+    align-items: center;
+}
+
+.side-menu .nav-links li {
+    margin: 15px 0;
+}
+
+.side-menu .nav-links li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+/* ================= MEDIA QUERIES ================== */
+/* Adjust padding a bit for medium screens */
+@media (max-width: 1260px) {
+    .nav-large {
+        padding-right: 40px;
+    }
+}
+
+/* Hide large nav on smaller screens */
+@media (max-width: 1024px) {
+    .nav-large {
+        display: none;
+    }
+    .nav-small {
+        display: flex;
+    }
+}
+
+/* Confirm small nav shows under 768px too */
+@media (max-width: 768px) {
+    .nav-large {
+        display: none;
+    }
+    .nav-small {
+        display: flex;
+   }
+}

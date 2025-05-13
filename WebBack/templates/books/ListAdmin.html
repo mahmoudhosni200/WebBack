@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>List of Books</title>
+    <meta charset="UTF-8">
+     {% load static %}
+    <link rel="stylesheet" href="{% static 'css/ListAdmin.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<div class="list-of-book">
+    <h1>List of Books</h1>
+
+    <div class="english-books">
+        <h2>English Books</h2>
+        <div class="book-container">
+            {% for book in english_books %}
+                <div class="book-card">
+                    <img src="{{ book.book_image.url }}" alt="{{ book.book_name }}">
+                    <div class="book-info">
+                        <h3>{{ book.book_name }}</h3>
+                        <p>{{ book.description }}</p>
+                        <div class="action-buttons">
+                            <button onclick="window.location.href='#'">Edit</button>
+                            <form action="#" method="POST">
+                                {% csrf_token %}
+                                <button type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No English books available.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="arabic-books">
+        <h2>كتب عربية</h2>
+        <div class="book-container">
+            {% for book in arabic_books %}
+                <div class="book-card">
+                    <img src="{{ book.book_image.url }}" alt="{{ book.book_name }}">
+                    <div class="book-info">
+                        <h3>{{ book.book_name }}</h3>
+                        <p>{{ book.description }}</p>
+                        <div class="action-buttons">
+                            <button onclick="window.location.href='#'">Edit</button>
+                            <form action="#" method="POST">
+                                {% csrf_token %}
+                                <button type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No Arabic books available.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>&copy; 2023 Library. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

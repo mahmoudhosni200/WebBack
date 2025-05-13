@@ -1,0 +1,164 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background-color: #3C2712;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #f2ebd8;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+
+h2 {
+    margin-bottom: 20px;
+    color: #3C2712;
+}
+
+
+form {
+    color: #3C2712;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+label {
+    font-weight: bold;
+    color: #3C2712;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+button {
+    background-color:#3C2712;;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #6c4722;
+    transition: 0.5s;
+}
+
+/* ADD PHOTO FOR BOOK */
+
+
+.file-upload-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+
+input[type="file"] {
+    display: none;
+}
+
+
+.custom-file-upload {
+    background-color: #3C2712;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.custom-file-upload:hover {
+    background-color: #6c4722;
+}
+
+
+#file-name {
+    font-style: italic;
+    color: #3C2712;
+    font-size: 14px;
+}
+
+
+.language-options {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+
+.custom-radio {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #3C2712;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.custom-radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border: 2px solid #3C2712;
+    border-radius: 5px;
+}
+
+.custom-radio:hover input ~ .checkmark {
+    background-color: #ddd;
+}
+
+.custom-radio input:checked ~ .checkmark {
+    background-color: #3C2712;
+}
+
+.custom-radio input:checked ~ .checkmark:after {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}

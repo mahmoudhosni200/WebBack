@@ -1,0 +1,76 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+.list-of-book{
+    background-color: #3C2712;
+}
+.clr{
+    clear: both;
+}
+h1{
+    font-size: 3em;
+}
+h1, h2{
+    color:#f2ebd8;
+    text-align: center;  
+}
+h2{
+    font-size: 2em;
+}
+button{
+    color:#f2ebd8;
+    background-color:  #3C2712;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border-color: transparent;
+    cursor: pointer;
+}
+button:hover{
+    background-color: #6c4722;
+    transition: 0.5s;
+}
+.container{
+    display:inline-block;
+    background-color: #f2ebd8;
+    width: 100%;
+}
+.container img{
+    width: 150px;
+    height: 200px;
+    margin: 10px;
+}
+.img-item{
+    width: 33%;
+    float:left;
+    padding-left: 40px;
+}
+.item{
+    color:#3C2712;
+    float: left;
+    width:33%;
+    padding: 40px;
+}
+.book{
+    float:left;
+    width:33%;
+    text-align: center;
+    padding: 40px;
+}
+.Arabic-books .img-item, .Arabic-books .item{
+    float:right;
+    text-align: right;
+    padding-right: 40px;
+}
+/* .search-input {
+    transition: all 0.3s ease;
+    width: 200px;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #4CAF50 !important;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+} */
+
