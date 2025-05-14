@@ -26,11 +26,33 @@ def addBook(request):
     return render(request, 'Books/addBook.html')
 
 
+# def list_books_admin(request):
+#     if request.method == 'GET':
+#         english_books = Book.objects.filter(language='english')
+#         arabic_books = Book.objects.filter(language='arabic')
+#         return render(request, 'Books/ListAdmin.html', {
+#             'english_books': english_books,
+#             'arabic_books': arabic_books
+#         })
 def list_books_admin(request):
-    if request.method == 'GET':
-        english_books = Book.objects.filter(language='english')
-        arabic_books = Book.objects.filter(language='arabic')
-        return render(request, 'Books/ListAdmin.html', {
-            'english_books': english_books,
-            'arabic_books': arabic_books
-        })
+    english_books = Book.objects.filter(language='english')
+    arabic_books = Book.objects.filter(language='arabic')
+    return render(request, 'Books/ListAdmin.html', {
+        'english_books': english_books,
+        'arabic_books': arabic_books
+    })
+    
+def delete_book(request, book_id):
+    if request.method == 'POST':
+        book = Book.objects.filter(id=book_id).first()
+        if book:
+            book.delete()
+
+    english_books = Book.objects.filter(language='english')
+    arabic_books = Book.objects.filter(language='arabic')
+    
+    return render(request, 'Books/ListAdmin.html', {
+        'english_books': english_books,
+        'arabic_books': arabic_books,
+        'message': 'Book deleted successfully'
+    })

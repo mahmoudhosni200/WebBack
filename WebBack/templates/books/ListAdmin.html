@@ -3,7 +3,7 @@
 <head>
     <title>List of Books</title>
     <meta charset="UTF-8">
-     {% load static %}
+    {% load static %}
     <link rel="stylesheet" href="{% static 'css/ListAdmin.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
@@ -23,7 +23,7 @@
                         <p>{{ book.description }}</p>
                         <div class="action-buttons">
                             <button onclick="window.location.href='#'">Edit</button>
-                            <form action="#" method="POST">
+                            <form action="{% url 'delete_book' book.id %}" method="POST">
                                 {% csrf_token %}
                                 <button type="submit">Delete</button>
                             </form>
