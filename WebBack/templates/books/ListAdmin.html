@@ -1,69 +1,94 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>List of Books</title>
     <meta charset="UTF-8">
-    {% load static %}
+    <title>List of Books</title>
     <link rel="stylesheet" href="{% static 'css/ListAdmin.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ScrollBar.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+<!-- Navigation -->
+
 <div class="list-of-book">
     <h1>List of Books</h1>
+    <br><br>
 
+    
     <div class="english-books">
-        <h2>English Books</h2>
-        <div class="book-container">
-            {% for book in english_books %}
-                <div class="book-card">
-                    <img src="{{ book.book_image.url }}" alt="{{ book.book_name }}">
-                    <div class="book-info">
-                        <h3>{{ book.book_name }}</h3>
-                        <p>{{ book.description }}</p>
-                        <div class="action-buttons">
-                            <button onclick="window.location.href='#'">Edit</button>
-                            <form action="{% url 'delete_book' book.id %}" method="POST">
-                                {% csrf_token %}
-                                <button type="submit">Delete</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            {% empty %}
-                <p>No English books available.</p>
-            {% endfor %}
+        <h2>English books</h2>
+        {% for book in english_books %}
+        <div class="container">
+            <div class="img-item">
+                <img src="{{ book.book_image.url }}" alt="{{ book.book_name }}">
+            </div>
+            <div class="item">
+                <h3>{{ book.book_name }}</h3>
+                <p><strong>Author:</strong> {{ book.author }}</p>
+                <p>{{ book.description }}</p>
+                <p><strong>Available:</strong> {{ book.available_copies }}</p>
+                <p><strong>Borrowed:</strong> {{ book.borrowed_copies }}</p>
+            </div>
+            <div class="edit">
+                <a href="{% url 'edit_book' book.id %}"><button>Edit</button></a>
+                <form method="post" action="{% url 'delete_book' book.id %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+            <div class="clr"></div>
         </div>
+        {% empty %}
+        <p style="text-align: center; color: #f2ebd8;">No English books available.</p>
+        {% endfor %}
     </div>
 
-    <div class="arabic-books">
+    <br><hr><br><br>
+
+    
+    <div class="Arabic-books">
         <h2>كتب عربية</h2>
-        <div class="book-container">
-            {% for book in arabic_books %}
-                <div class="book-card">
-                    <img src="{{ book.book_image.url }}" alt="{{ book.book_name }}">
-                    <div class="book-info">
-                        <h3>{{ book.book_name }}</h3>
-                        <p>{{ book.description }}</p>
-                        <div class="action-buttons">
-                            <button onclick="window.location.href='#'">Edit</button>
-                            <form action="#" method="POST">
-                                {% csrf_token %}
-                                <button type="submit">Delete</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            {% empty %}
-                <p>No Arabic books available.</p>
-            {% endfor %}
+        {% for book in arabic_books %}
+        <div class="container">
+            <div class="img-item">
+                <img src="{{ book.book_image.url }}" alt="{{ book.book_name }}">
+            </div>
+            <div class="item">
+                <h3>{{ book.book_name }}</h3>
+                <p><strong>المؤلف:</strong> {{ book.author }}</p>
+                <p>{{ book.description }}</p>
+                <p><strong>المتوفر:</strong> {{ book.available_copies }}</p>
+                <p><strong>المُستعار:</strong> {{ book.borrowed_copies }}</p>
+            </div>
+            <div class="edit">
+                <a href="{% url 'edit_book' book.id %}"><button>Edit</button></a>
+                <form method="post" action="{% url 'delete_book' book.id %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+            <div class="clr"></div>
         </div>
+        {% empty %}
+        <p style="text-align: center; color: #f2ebd8;">لا توجد كتب عربية.</p>
+        {% endfor %}
     </div>
 </div>
 
 <footer class="footer">
     <p>&copy; 2023 Library. All rights reserved.</p>
 </footer>
+
+<script src="{% static 'js/Add.js' %}" defer></script>
+<script src="{% static 'js/searchButton.js' %}"></script>
+<script src="{% static 'js/navbarAuth.js' %}"></script>
+<script src="{% static 'js/list-of-books-Admin.js' %}" defer></script>
 
 </body>
 </html>

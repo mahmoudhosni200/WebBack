@@ -56,3 +56,20 @@ def delete_book(request, book_id):
         'arabic_books': arabic_books,
         'message': 'Book deleted successfully'
     })
+def edit_book(request, book_id):
+    book = Book.objects.get(id=book_id)
+    if request.method == 'POST':
+        book.book_name = request.POST['book_name']
+        book.author = request.POST['author']
+        book.category = request.POST['category']
+        book.description = request.POST['description']
+        book.available_copies = request.POST['available_copies']
+        book.language = request.POST['choice']
+        
+        if 'book_image' in request.FILES:
+            book.book_image = request.FILES['book_image']
+        
+        book.save()
+        return redirect('list_books_admin')
+    
+    return render(request, 'Books/Edit_Book.html', {'book': book})

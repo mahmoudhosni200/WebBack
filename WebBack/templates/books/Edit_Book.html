@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Book</title>
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/edit.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navStyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ScrollBar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/searchButtonAll.css' %}">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Edit Book</h2>
+        <form action="{% url 'edit_book' book.id %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <p style="font-size: 14px; color: #555;">Book ID: {{ book.id }}</p>
+
+            <label for="book_name">Book Name:</label>
+            <input type="text" id="book_name" name="book_name" value="{{ book.book_name }}" required  onfocus="this.select()"  autofocus>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required>{{ book.description }}</textarea>
+
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" value="{{ book.author }}" required>
+
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category" value="{{ book.category }}" required>
+
+            <label for="available_copies">Available Copies:</label>
+            <input type="number" id="available_copies" name="available_copies" value="{{ book.available_copies }}" required>
+
+            <label for="choice">Language:</label>
+            <select name="choice" id="choice" required>
+                <option value="english" {% if book.language == 'english' %}selected{% endif %}>English</option>
+                <option value="arabic" {% if book.language == 'arabic' %}selected{% endif %}>Arabic</option>
+            </select>
+
+            <label for="book_image">Book Image:</label>
+            <input type="file" id="book_image" name="book_image">
+
+            <button type="submit" id="updateBookButton">Update Book</button>
+            <button type="submit" formaction="{% url 'delete_book' book.id %}" class="delete-btn">Delete Book</button>
+        </form>
+    </div>
+
+    <script src="{% static 'js/searchButtonAll.js' %}"></script>
+    <script src="{% static 'js/navbarAuth.js' %}"></script>
+    <script src="{% static 'js/edit.js' %}" defer></script>
+
+</body>
+</html>
