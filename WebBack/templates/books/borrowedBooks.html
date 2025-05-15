@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Borrowed Books</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{% static 'css/borrowedBooks.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navStyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ScrollBar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/List-of-Book.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/searchButtonAll.css' %}">
+</head>
+<body>
+   
+    <div class="borrowed-books">
+        <div class="list-of-book">
+            <div class="borrowed-list">
+                
+            </div>
+            <div class="nav-buttons">
+                <a href="{% url 'books:ListUser' %}" class="back-btn">Back to Book List</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/js/ListOfBooks.js" defer></script>
+    <script src="{% static 'js/borrowedBooks.js' %}" defer></script>
+    <script src="{% static 'js/searchButtonAll.js' %}"></script>
+    <script src="{% static 'js/navbar.js' %}"></script>
+</body>
+</html>
