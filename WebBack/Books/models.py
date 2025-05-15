@@ -1,6 +1,8 @@
 
 from django.db import models
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
+from django.conf import settings
+
 
 class Book(models.Model):
     LANGUAGE_CHOICES = [
@@ -21,8 +23,8 @@ class Book(models.Model):
         return self.book_name
 
 class BorrowedBook(models.Model):
-    user = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL)
+    book = models.ForeignKey('Book', on_delete=models.CASCADE)
     session_id = models.CharField(max_length=100, null=True, blank=True)
     borrowed_at = models.DateTimeField(auto_now_add=True)
     

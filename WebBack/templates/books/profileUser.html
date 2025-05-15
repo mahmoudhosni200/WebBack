@@ -39,7 +39,8 @@
         <h4 class="email">Email</h4>
         <p class="mail">{{ member.email }}</p>
         <h4 class="email">Joined: {{ member.membership_date }}</h4>
-        {% comment %} <a href="{% url 'borrowed_books' %}" class="bo">Borrowed books</a> {% endcomment %} {% comment %} borrowed books will be here{%endcomment%}
+        <br>
+        <a href="{% url 'borrowed_books' %}" class="bo">Borrowed books</a>
         <div class="perso">
             <i class="fa fa-facebook fa-lg icon" aria-hidden="true"></i>
             <i class="fa fa-twitter fa-lg icon" aria-hidden="true"></i>
