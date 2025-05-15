@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Admin Profile</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ScrollBar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profileStyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navStyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/searchButtonAll.css' %}">
+</head>
+<body>
+    {% comment %} <nav class="nav-large">
+        <div class="nav-logo">
+            <a href="{% url 'home_admin' %}">Library</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="{% url 'home_admin' %}">Home</a></li>
+            <li><a href="{% url 'admin_books' %}">Books</a></li>
+            <li><a href="{% url 'add_book' %}">ADD</a></li>
+            <li><a href="{% url 'admin_profile' %}">Profile</a></li>
+            <li><i class="fa fa-search search" aria-hidden="true"></i></li>
+            <li>
+                <span style="margin-right: 10px; font-weight: bold;">{{ admin.username }}</span>
+                <form action="{% url 'logout' %}" method="post">{% csrf_token %}
+                    <button type="submit" class="sign-in-btn">Logout</button>
+                </form>
+            </li>
+        </ul>
+    </nav> {% endcomment %}
+
+    {% comment %} <nav class="nav-small">
+        <div class="nav-logo">
+            <a href="{% url 'home_admin' %}">Library</a>
+        </div>
+        <button class="menu-toggle" id="menuToggle">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div class="side-menu" id="sideMenu">
+            <button class="close-menu" id="closeMenu">
+                <i class="fa fa-times"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="{% url 'home_admin' %}" class="active">Home</a></li>
+                <li><a href="{% url 'admin_books' %}">Books</a></li>
+                <li><a href="{% url 'add_book' %}">ADD</a></li>
+                <li><a href="{% url 'admin_profile' %}">Profile</a></li>
+                <li><i class="fa fa-search search" aria-hidden="true"></i></li>
+                <li>
+                    <span style="margin-right: 10px; font-weight: bold;">{{ admin.username }}</span>
+                    <form action="{% url 'logout' %}" method="post">{% csrf_token %}
+                        <button type="submit" class="sign-in-btn">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav> {% endcomment %}
+
+    <div class="profile section">
+        <div class="right">
+            {% if admin.profile_picture %}
+                <img src="{{ admin.profile_picture.url }}" alt="Profile Picture" class="profile-pic">
+            {% else %}
+                <img src="{% static 'image/pic.png' %}" alt="Profile Picture" class="profile-pic">
+            {% endif %}
+            <h2 class="right-header">{{ admin.name }}</h2>
+            <br>
+            <i class="fa fa-pencil-square-o fa-lg pen" aria-hidden="true"></i>
+        </div>
+        <div class="left">
+            <h3 class="left-header info">Information</h3>
+            <div class="line"></div>
+            <h4 class="email">Email</h4>
+            <p class="mail">{{ admin.email }}</p>
+            <div class="perso">
+                <i class="fa fa-facebook fa-lg icon" aria-hidden="true"></i>
+                <i class="fa fa-twitter fa-lg icon" aria-hidden="true"></i>
+                <i class="fa fa-instagram fa-lg icon" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="float-fix"></div>
+    </div>
+
+    <script src="{% static 'js/profileAdmin.js' %}"></script>
+    <script src="{% static 'js/searchButtonAllAdmin.js' %}"></script>
+    <script src="{% static 'js/navbarAuth.js' %}"></script>
+</body>
+</html>

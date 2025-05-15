@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{{ member.name }}'s Profile</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ScrollBar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profileStyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navStyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/searchButtonAll.css' %}">
+</head>
+<body>
+
+<!-- Navbar omitted for brevity; keep as-is -->
+
+<div class="profile section">
+    <div class="right">
+        {% if member.profile_picture %}
+            <img src="{{ member.profile_picture.url }}" alt="Profile Picture" class="profile-pic">
+        {% else %}
+            <img src="{% static 'image/pic.png' %}" alt="Profile Picture" class="profile-pic">
+        {% endif %}
+        <h2 class="right-header">{{ member.name }}</h2>
+        <br>
+        <i class="fa fa-pencil-square-o fa-lg pen" aria-hidden="true"></i>
+    </div>
+    <div class="left">
+        <h3 class="left-header info">Information</h3>
+        <div class="line"></div>
+        <h4 class="email">Email</h4>
+        <p class="mail">{{ member.email }}</p>
+        <h4 class="email">Joined: {{ member.membership_date }}</h4>
+        {% comment %} <a href="{% url 'borrowed_books' %}" class="bo">Borrowed books</a> {% endcomment %} {% comment %} borrowed books will be here{%endcomment%}
+        <div class="perso">
+            <i class="fa fa-facebook fa-lg icon" aria-hidden="true"></i>
+            <i class="fa fa-twitter fa-lg icon" aria-hidden="true"></i>
+            <i class="fa fa-instagram fa-lg icon" aria-hidden="true"></i>
+        </div>
+    </div>
+    <div class="float-fix"></div>
+</div>
+
+<footer class="footer">
+    <p>&copy; 2023 Library. All rights reserved.</p>
+</footer>
+
+<script src="{% static 'js/ProfileUser.js' %}"></script>
+<script src="{% static 'js/searchButtonAll.js' %}"></script>
+<script src="{% static 'js/navbarAuth.js' %}"></script>
+</body>
+</html>

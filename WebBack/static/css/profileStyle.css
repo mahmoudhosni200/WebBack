@@ -1,0 +1,149 @@
+ 
+.profile .right{
+    padding-top: 20px;;
+    width: 30%;
+    height: 100%;
+    float: left;
+    background-color:#f2ebd8;
+}
+.profile .right .profile-pic{
+    width: 100%;
+    height: 50%;
+    background-color: #f2ebd8;
+    text-align: center;
+    padding-top: 20px;
+}
+.profile .right .right-header{
+    font-size: 25px;
+    color: #3C2712;
+    font-weight: bold;
+    text-align: center;
+}
+.pen{
+    color: #3C2712;
+    /* left: 100px; */
+    padding-left: 130px;
+    cursor: pointer;
+}
+.left{
+    width: 70%;
+    height: 100%;
+    float: left;
+    background-color: white;    
+}
+.info{
+    width: 100%;
+    /* height: 50%; */
+    background-color: white;
+    /* text-align: left; */
+    padding-top: 30px;
+    padding-left: 50px;
+    /* color: gray; */
+    /* border-bottom:3px solid #e0e0e09c; */
+}
+.line{
+    width: 80%;
+    height: 3px;
+    background-color: #e0e0e09c;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    /* padding-left: 0px; */
+    margin-left: 50px;
+}
+.email{
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    padding-top: 20px;
+    padding-left: 50px;
+    font-size: 17px;
+    /* color: gray; */
+    /* border-bottom:3px solid #e0e0e09c; */
+}
+.mail{
+    width: 80%;
+    height: 50px;
+    background-color: white;
+    /* padding-top: 20px; */
+    padding-left: 50px;
+    font-size: 17px;
+    color: gray;
+    /* border-bottom:3px solid #e0e0e09c; */
+}
+.bo{
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    padding-top: 20px;
+    padding-left: 50px;
+    font-size: 17px;
+    color: black;
+    /* border-bottom:3px solid #e0e0e09c; */
+}
+.perso{
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    padding-top: 80px;
+    padding-left: 50px;
+    font-size: 17px;
+    color: #3C2712;
+    /* border-bottom:3px solid #e0e0e09c; */
+}
+.icon{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+@media (max-width: 992px) {
+    .profile .right, 
+    .profile .left {
+        width: 100%;
+        float: none;
+    }
+    
+    .profile .right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .profile-pic {
+        max-width: 300px;
+    }
+    
+    .pen {
+        padding-left: 0;
+        text-align: center;
+    }
+    
+    .info, .email, .mail, .bo, .perso {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .line {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .perso {
+        padding-top: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .profile .right .right-header {
+        font-size: 20px;
+    }
+    
+    .info, .email, .mail, .bo, .perso {
+        font-size: 15px;
+    }
+    
+    .profile-pic {
+        max-width: 200px;
+    }
+}
