@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Books</title>
+    <link rel="stylesheet" href="{% static 'css/ListUser.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navStyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ScrollBar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/searchButton.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navigation -->
+
+<div class="list-of-book">
+    <h1>List of Books</h1>
+    <br><br>
+
+    <div class="english-books" id="english-books">
+        <h2>English Books</h2>
+
+    </div>
+
+    <br><hr><br><br>
+
+    <div class="arabic-books" id="arabic-books">
+        <h2>كتب عربية</h2>
+        
+    </div>
+</div>
+
+<footer class="footer">
+    <p>&copy; {% now "Y" %} Library. All rights reserved.</p>
+</footer>
+
+<script src="{% static 'js/ListOfBooks.js' %}" defer></script>
+<script src="{% static 'js/searchButton.js' %}"></script>
+<script src="{% static 'js/navbarAuth.js' %}"></script>
+<script src="{% static 'js/addBook.js' %}"></script>
+
+</body>
+</html>
