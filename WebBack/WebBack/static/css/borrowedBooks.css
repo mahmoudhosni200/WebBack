@@ -1,0 +1,138 @@
+
+.borrowed-books {
+    max-width: 100%;
+    padding: 20px 5%;
+    margin: 0 auto;
+    background-color: #3C2712;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.borrowed-books h1, 
+.borrowed-books h2 {
+    text-align: center;
+    color: #f2ebd8;
+    margin-bottom: 20px;
+}
+
+.borrowed-books h2 {
+    font-size: 24px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f2ebd8;
+}
+
+/* Book container styles */
+.borrowed-books .container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #f2ebd8;
+    box-shadow: 0 2px 5px #f2ebd8;
+    transition: transform 0.2s;
+}
+
+.borrowed-books .container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+
+.borrowed-books .img-item {
+    flex: 0 0 120px;
+    margin-right: 20px;
+}
+
+.borrowed-books .img-item img {
+    width: 100%;
+    height: auto;
+    max-height: 160px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Content styles */
+.borrowed-books .item {
+    flex: 1;
+    min-width: 200px;
+}
+
+.borrowed-books .item h3 {
+    color: #3C2712;
+    margin: 0 0 8px 0;
+    font-size: 18px;
+}
+
+.borrowed-books .item h4 {
+    color: #3C2712;
+    margin: 0 0 10px 0;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.borrowed-books .item p {
+    color: #3C2712;
+    line-height: 1.5;
+    margin: 0 0 15px 0;
+    font-size: 14px;
+}
+
+/* Button styles */
+.borrowed-books .book {
+    flex: 0 0 120px;
+    align-self: center;
+    text-align: center;
+}
+
+.borrowed-books .return-btn {
+    background-color: #3C2712;
+    color: #f2ebd8;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.borrowed-books .return-btn:hover {
+    background-color: #6d4721;
+    transform: scale(1.05);
+}
+
+/* Navigation buttons */
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.nav-buttons a {
+    padding: 12px 25px;
+    background-color: #f2ebd8;
+    color: #3C2712;
+    text-decoration: none;
+    border-radius: 4px;
+    margin: 0 10px;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.nav-buttons a:hover {
+    background-color: #e9ddbc;
+    transform: translateY(-2px);
+}
+
+
+.borrowed-books p {
+    color: #7a6b5d;
+    font-style: italic;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 16px;
+}
+
+
+.clr {
+    clear: both;
+}
