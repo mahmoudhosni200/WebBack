@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -69,7 +69,7 @@
         </div>
         <div class="right-home">
             <div class="home-img">
-                <img class="" src="images/bookhome.jpg" alt="home">
+                <img class="" src="image/bookhome.jpg" alt="home">
             </div>
         </div>
         <!-- <div class="float-fix"></div> -->
@@ -78,7 +78,7 @@
     <div class="about first" id="about">
         <div class="container">
             
-            <img src="images/boy.png" alt="about" class="boy-img">
+            <img src="image/boy.png" alt="about" class="boy-img">
             <div class="about-right">
                 <h2 class="about-title">Explore the Best Books Online Here</h2>
                 <p class="about-txt">It is a well-known fact that readers seek a vast collection of books when exploring an online library. The purpose of our digital library is to provide seamless access to a diverse range of books, ensuring an enriching reading experience for everyone.</p>
@@ -94,17 +94,17 @@
             <div class="first-row">
             <div class="book-list">
                 <div class="book-item">
-                    <img src="images/Pride and Prejudice.jpg" alt="Book 1" style="height: 85%;">
+                    <img src="image/Pride and Prejudice.jpg" alt="Book 1" style="height: 85%;">
                     <h3 class="book-name">Pride and Prejudice</h3>
                     <p>Author: Harper Lee</p>
                 </div>
                 <div class="book-item mg">
-                    <img src="images/name-wind.jpg" alt="Book 2" class="book2"> 
+                    <img src="image/name-wind.jpg" alt="Book 2" class="book2"> 
                     <h3 class="book-name">The Name Of The Wind</h3>
                     <p>Author: Jane Austen</p>
                 </div>
                 <div class="book-item">
-                    <img src="images/the great gatspy.jpg" alt="Book 3" class="book3" >
+                    <img src="image/the great gatspy.jpg" alt="Book 3" class="book3" >
                     <h3 class="book-name">The Great Gatspy</h3>
                     <p>Author:  Jane Austen</p>
                 </div>
@@ -149,5 +149,165 @@
     </footer>
     <script src="js/searchButtonAll.js"></script>
     <script src="js/navbarAuth.js"></script>
+</body>
+</html> {% endcomment %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Online Library</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poppins:wght@100..900&display=swap" rel="stylesheet" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profileStyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ScrollBar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/searchButtonAll.css' %}">
+    <script src="{% static 'js/signIn.js' %}" defer></script>
+</head>
+<body>
+    <div class="home" id="home">
+        <!-- Navigation - Large -->
+        <nav class="nav-large">
+            <div class="nav-logo">
+                <a href="{% url 'index' %}">Library</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#books">Books</a></li>
+                <li><a href="#contact">Contact us</a></li>
+                <li><a href="{% url 'user_profile' %}">Profile</a></li>
+                <li><i class="fa fa-search search" aria-hidden="true"></i></li>
+                <li>
+                    <span id="user-name-large" style="margin-right: 10px; font-weight: bold;"></span>
+                    <button id="auth-btn-large" class="sign-in-btn" onclick="window.location.href='{% url 'signin' %}'" >Sign in</button>
+                    {% comment %} <a href="{% url 'signin' %}" id="auth-btn-large" class="sign-in-btn">Sign in</a> {% endcomment %}
+
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Navigation - Small -->
+        <nav class="nav-small">
+            <div class="nav-logo">
+                <a href="{% url 'index' %}">Library</a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="side-menu" id="sideMenu">
+                <button class="close-menu" id="closeMenu">
+                    <i class="fa fa-times"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#books">Books</a></li>
+                    <li><a href="#contact">Contact us</a></li>
+                    <li><a href="{% url 'user_profile' %}">Profile</a></li>
+                    <li><i class="fa fa-search search" aria-hidden="true"></i></li>
+                    <li>
+                        <span id="user-name-small" style="margin-right: 10px; font-weight: bold;"></span>
+                        <button id="auth-btn-small" class="sign-in-btn">Sign in</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <div class="left-home">
+            <h1 class="homepg-title">Discover and Borrow Books Online Here</h1>
+            <a href="#about" class="home-btn">About Us</a>
+        </div>
+        <div class="right-home">
+            <div class="home-img">
+                <img src="{% static 'image/bookhome.jpg' %}" alt="home">
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="about first" id="about">
+        <div class="container">
+            <img src="{% static 'image/boy.png' %}" alt="about" class="boy-img">
+            <div class="about-right">
+                <h2 class="about-title">Explore the Best Books Online Here</h2>
+                <p class="about-txt">
+                    It is a well-known fact that readers seek a vast collection of books when exploring an online library.
+                    The purpose of our digital library is to provide seamless access to a diverse range of books, ensuring
+                    an enriching reading experience for everyone.
+                </p>
+                <a class="about-btn" href="{% url 'ListUser' %}">Explore!</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Books Section -->
+    <div class="books" id="books">
+        <div class="container">
+            <h2 class="books-title">Books</h2>
+            <p class="books-txt">Explore our collection of books and find your next read.</p>
+            <div class="first-row">
+                <div class="book-list">
+                    <div class="book-item">
+                        <img src="{% static 'image/Pride and Prejudice.jpg' %}" alt="Book 1" style="height: 85%;">
+                        <h3 class="book-name">Pride and Prejudice</h3>
+                        <p>Author: Harper Lee</p>
+                    </div>
+                    <div class="book-item mg">
+                        <img src="{% static 'image/name-wind.jpg' %}" alt="Book 2" class="book2">
+                        <h3 class="book-name">The Name Of The Wind</h3>
+                        <p>Author: Jane Austen</p>
+                    </div>
+                    <div class="book-item">
+                        <img src="{% static 'image/the great gatspy.jpg' %}" alt="Book 3" class="book3">
+                        <h3 class="book-name">The Great Gatspy</h3>
+                        <p>Author: Jane Austen</p>
+                    </div>
+                </div>
+            </div>
+            <a href="{% url 'ListUser' %}" class="books-btn">See More</a>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container2">
+            <h1 class="contact-title">Get in Touch</h1>
+            <p class="contact-text">Have any questions or feedback?<br> Feel free to contact us.</p>
+            <form class="contact-form">
+                <div class="input-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="5" placeholder="Write your message here..." required></textarea>
+                </div>
+                <button type="submit" class="contact-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2023 Library. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="{% static 'js/searchButtonAll.js' %}"></script>
+    <script src="{% static 'js/navbarAuth.js' %}"></script>
 </body>
 </html>

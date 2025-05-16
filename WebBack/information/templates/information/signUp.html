@@ -1,64 +1,78 @@
-{% if messages %}
-  {% for message in messages %}
-    <div style="color:red">{{ message }}</div>
-  {% endfor %}
-{% endif %}
-
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>Sign up</title>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/font-awesome.min.css">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/ScrollBar.css"> 
- <script src="js/signUp.js" defer></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poppins:wght@100;400;600&display=swap" rel="stylesheet">
 
-
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ScrollBar.css' %}">
 </head>
 <body>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div style="color: red;">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
     <div class="section">
-    <div class="inner-section">
-        <h2 class="title">Sign up</h2>
-        <form class="sign-up" id="signUpForm">
-            <div class="element"><label for="username" class="username t"><i class="fa fa-user" aria-hidden="true"></i></label>
-                <input type="text" class="username inner-elem" name="username" placeholder="Your name" required><br></div>
-            
-            <div class="element"><label for="email" class="email t"><i class="fa fa-envelope" aria-hidden="true"></i></label>
-                <input type="email" class="email inner-elem" name="email" placeholder="Your email" required><br></div>
+        <div class="inner-section">
+            <h2 class="title">Sign up</h2>
 
-            
-            <div class="element">
-                <i class="fa fa-lock" aria-hidden="true"></i>
-                <input type="password" class="password inner-elem" name="password" placeholder="Password" required><br>
-            </div>
-            
-            <div class="element"><label for="password" class="password t"><i class="fa fa-lock" aria-hidden="true"></i></label>
-                <input type="password" class="password inner-elem" name="confirm-password" placeholder="Confirm password" required><br></div>
-    
-            
-            <label>
-                <input type="radio" name="choice" value="option1" class="select-btn admin" required> Admin
-            </label>
-            <label>
-                <input type="radio" name="choice" value="option2" class ="select-btn user" required> User
-            </label>
+            <form class="sign-up" method="POST" action="{% url 'signup' %}">
+                {% csrf_token %}
+
+                <div class="element">
+                    <label for="username"><i class="fa fa-user" aria-hidden="true"></i></label>
+                    <input type="text" name="username" placeholder="Your name" required>
+                </div>
+
+                <div class="element">
+                    <label for="email"><i class="fa fa-envelope" aria-hidden="true"></i></label>
+                    <input type="email" name="email" placeholder="Your email" required>
+                </div>
+
+                <div class="element">
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+
+                <div class="element">
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                    <input type="password" name="confirm-password" placeholder="Confirm password" required>
+                </div>
+
+                <label>
+                    <input type="radio" name="choice" value="option1" required> Admin
+                </label>
+                <label>
+                    <input type="radio" name="choice" value="option2" required> User
+                </label>
+
+                <br>
+                <button type="submit" class="register-btn">Register</button>
+            </form>
+        </div>
+
+        <div class="img">
+            <img src="{% static 'image/signup-image.jpg' %}" alt="Sign Up Image" class="signup-img">
             <br>
-            <button type="submit" class="register-btn" onclick="getSignUpFormData">Register</button>
-            
-        </form>
-    </div>
-    <div class="img">
-        <img src="images/signup-image.jpg" alt="Sign Up Image" class="signup-img">
-        <br><a href="signIn.html" class="img-txt">I am already a member</a>
-    </div>
-    <div class="float-fix"></div>
-    </div>
-    <script src="js/navbarAuth.js"></script>
+            <a href="{% url 'signin' %}" class="img-txt">I am already a member</a>
+        </div>
 
+        <div class="float-fix"></div>
+    </div>
+
+    <script src="{% static 'js/navbarAuth.js' %}"></script>
+    <script src="{% static 'js/signUp.js' %}" defer></script>
 </body>
 </html>

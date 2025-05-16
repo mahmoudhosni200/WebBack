@@ -23,8 +23,8 @@ class MemberManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, name, phone_number, password):
-        user = self.create_user(email=email, name=name, phone_number=phone_number, password=password)
+    def create_superuser(self, email, name, password):
+        user = self.create_user(email=email, name=name, password=password)
         user.is_staff = True
         user.is_superuser = True
         user.save(using=self._db)
@@ -33,7 +33,7 @@ class MemberManager(BaseUserManager):
 class Member(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     name = models.CharField(max_length=100)
-    phone_number = models.CharField(max_length=15, unique=True)
+    # phone_number = models.CharField(max_length=15, unique=True)
     membership_date = models.DateField(auto_now_add=True)
     # membership_type = models.CharField(max_length=50)
     profile_picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)

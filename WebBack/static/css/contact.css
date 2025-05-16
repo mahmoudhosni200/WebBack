@@ -1,0 +1,147 @@
+
+.contact {
+    background-color: #f2ebd8;
+    width: 100%;
+    max-height: 100%;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    background: #fff;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.container.hidden {
+    display: none;
+}
+
+.contact-title {
+    font-size: 24px;
+    color: #3C2712;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.contact-text {
+    text-align: center;
+    color: #3C2712;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 14px;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+.input-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.contact-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #3C2712;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.contact-btn:hover {
+    background-color: #694828;
+}
+
+.error {
+    border-color: #ff4444 !important;
+}
+
+.error-message {
+    color: #ff4444;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.confirmation-container {
+    display: none;
+    width: 100%;
+    max-width: 600px;
+    background: #fff;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: scaleIn 0.3s ease;
+}
+
+.confirmation-content {
+    text-align: center;
+}
+
+.confirmation-icon {
+    color: #4CAF50;
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.confirmation-title {
+    color: #3C2712;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.confirmation-text {
+    color: #555;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.confirmation-details {
+    color: #777;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.confirmation-close-btn {
+    background-color: #3C2712;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.confirmation-close-btn:hover {
+    background-color: #694828;
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
