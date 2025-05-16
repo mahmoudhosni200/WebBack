@@ -1,0 +1,51 @@
+{% if messages %}
+  {% for message in messages %}
+    <div style="color:red">{{ message }}</div>
+  {% endfor %}
+{% endif %}
+
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/ScrollBar.css">
+
+
+</head>
+<body>
+    <div class="section">
+        <div class="img sign-in">
+            <img src="images/signin-image.jpg" alt="Sign in Image" class="signin-img">
+            <br><a href="signUp.html" class="img-txt-sign-in">Create an account</a>
+        </div>
+        <div class="inner-section Signin">
+            <h2 class="title">Sign in</h2>
+            <form class="sign-in">
+            <div class="element"><label for="username" class="username t"><i class="fa fa-user" aria-hidden="true"></i></label>
+                <input type="text" class="username inner-elem" name="username" placeholder="Your name" required><br></div>
+            <div class="element">
+                <i class="fa fa-lock" aria-hidden="true"></i>
+                <input type="password" class="password inner-elem" name="password" placeholder="Password" required><br>
+            </div>
+            
+            <label>
+                <input type="checkbox" name="Remember" class="remember"> Remember me
+            </label>
+            <br>
+            <button type="submit" class="register-btn btn">Log in</button>
+            
+        </form>
+        </div>
+    </div>
+    <script src="js/navbarAuth.js"></script>
+    <script src="js/signIn.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/profileStyle.css">
+<link rel="stylesheet" href="css/navStyle.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/ScrollBar.css">
+<link rel="stylesheet" href="css/searchButtonAll.css">
+<script src="js/signIn.js" defer></script>
+
+</head>
+<body>
+    <div class="home" id="home">
+        <nav class="nav-large">
+            <div class="nav-logo">
+                <a href="homeAdmin.html">Library</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="homeAdmin.html">Home</a></li>
+                <li><a href="List-of-Books-Admin.html">Books</a></li>
+                <li><a href="Add_Book.html">ADD</a></li>
+                <li><a href="profileAdmin.html">Profile</a></li>
+                <li><i class="fa fa-search search" aria-hidden="true"></i></li>
+                <li>
+                    <span id="user-name-large" style="margin-right: 10px; font-weight: bold;"></span>
+                <button id="auth-btn-large" class="sign-in-btn">Sign in</button>
+                </li>
+            </ul>
+        </nav>
+    
+        <nav class="nav-small">
+            <div class="nav-logo">
+                <a href="homeAdmin.html">Library</a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="side-menu" id="sideMenu">
+                <button class="close-menu" id="closeMenu">
+                    <i class="fa fa-times"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="homeAdmin.html" class="active">Home</a></li>
+                    <li><a href="List-of-Books-Admin.html">Books</a></li>
+                    <li><a href="Add_Book.html">ADD</a></li>
+                    <li><a href="profileAdmin.html">Profile</a></li>
+                    <li><i class="fa fa-search search" aria-hidden="true"></i></li>
+                    <li>
+                        <span id="user-name-small" style="margin-right: 10px; font-weight: bold;"></span>
+                        <button id="auth-btn-small" class="sign-in-btn">Sign in</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="left-home" >
+            <h1 class="homepg-title">
+                Discover and Borrow Books Online Here
+            </h1>
+            <a href="#about" class="home-btn">About Us</a>
+        </div>
+        <div class="right-home">
+            <div class="home-img">
+                <img class="" src="images/bookhome.jpg" alt="home">
+            </div>
+        </div>
+        <!-- <div class="float-fix"></div> -->
+    </div>
+    
+    <div class="about first" id="about">
+        <div class="container">
+            
+            <img src="images/boy.png" alt="about" class="boy-img">
+            <div class="about-right">
+                <h2 class="about-title">Explore the Best Books Online Here</h2>
+                <p class="about-txt">It is a well-known fact that readers seek a vast collection of books when exploring an online library. The purpose of our digital library is to provide seamless access to a diverse range of books, ensuring an enriching reading experience for everyone.</p>
+                <a class="about-btn" href="List-of-Books-Admin.html">Explore!</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="books" id="books">
+        <div class="container">
+            <h2 class="books-title">Books</h2>
+            <p class="books-txt">Explore our collection of books and find your next read.</p>
+            <div class="first-row">
+            <div class="book-list">
+                <div class="book-item">
+                    <img src="images/Pride and Prejudice.jpg" alt="Book 1" style="height: 85%;">
+                    <h3 class="book-name">Pride and Prejudice</h3>
+                    <p>Author: Harper Lee</p>
+                </div>
+                <div class="book-item mg">
+                    <img src="images/name-wind.jpg" alt="Book 2" class="book2"> 
+                    <h3 class="book-name">The Name Of The Wind</h3>
+                    <p>Author: Jane Austen</p>
+                </div>
+                <div class="book-item">
+                    <img src="images/the great gatspy.jpg" alt="Book 3" class="book3" >
+                    <h3 class="book-name">The Great Gatspy</h3>
+                    <p>Author:  Jane Austen</p>
+                </div>
+            </div>
+            </div>
+            
+                <a href="List-of-Books-Admin.html" class="books-btn">See More</a>
+            
+        </div>
+        <div class="float-fix"></div>
+    </div>
+    <section class="contact" id="contact">
+        <div class="container2">
+            <h1 class="contact-title">Get in Touch</h1>
+            <p class="contact-text">Have any questions or feedback?<br> Feel free to contact us.</p>
+            
+            <form class="contact-form">
+                <div class="input-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="5" placeholder="Write your message here..." required></textarea>
+                </div>
+                
+                <button type="submit" class="contact-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+    <footer class="footer">
+        
+        <p>&copy; 2023 Library. All rights reserved.</p>
+                
+            
+    </footer>
+    <script src="js/searchButtonAllAdmin.js"></script>
+    <script src="js/navbarAuth.js"></script>
+</body>
+</html>
