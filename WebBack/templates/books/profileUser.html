@@ -15,12 +15,38 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/ScrollBar.css' %}">
     <link rel="stylesheet" href="{% static 'css/profileStyle.css' %}">
-    <link rel="stylesheet" href="{% static 'css/navStyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
     <link rel="stylesheet" href="{% static 'css/searchButtonAll.css' %}">
 </head>
 <body>
 
 <!-- Navbar omitted for brevity; keep as-is -->
+ <nav class="nav-large">
+            <div class="nav-logo">
+                <a href="{% url 'index' %}">Library</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'ListUser' %}">Books</a></li>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><i class="fa fa-search search" aria-hidden="true"></i></li>
+                <li>
+                    <span id="user-name-large" style="margin-right: 10px; font-weight: bold;">
+                        {% if user.is_authenticated %}{{ user.username }}{% endif %}
+                    </span>
+                    {% if user.is_authenticated %}
+                        <form action="{% url 'logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="sign-in-btn">Sign out</button>
+                        </form>
+                    {% else %}
+                        <button class="sign-in-btn" onclick="window.location.href='{% url 'signin' %}'">Sign in</button>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+
 
 <div class="profile section">
     <div class="right">

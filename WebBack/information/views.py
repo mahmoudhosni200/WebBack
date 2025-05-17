@@ -87,3 +87,5 @@ def index_view(request):
     return render(request, 'information/index.html')
 
 
+def homeAdmin_view(request):
+    return render(request, 'information/homeAdmin.html')

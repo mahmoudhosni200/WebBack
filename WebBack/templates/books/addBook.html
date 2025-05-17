@@ -7,14 +7,37 @@
 
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/add.css' %}">
-    <link rel="stylesheet" href="{% static 'css/navStyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
     <link rel="stylesheet" href="{% static 'css/ScrollBar.css' %}">
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/searchButtonAll.css' %}">
 </head>
 <body>
-    <!-- <nav class="nav-large"> ... </nav>
-    <nav class="nav-small"> ... </nav> -->
+    <nav class="nav-large">
+            <div class="nav-logo">
+                <a href="#">Library</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'homeAdmin' %}">Home</a></li>
+                <li><a href="{% url 'list_books_admin' %}">Books</a></li>
+                <li><a href="{% url 'addBook' %}">ADD</a></li>
+                <li><a href="{% url 'admin_profile' %}">Profile</a></li>
+                <li><i class="fa fa-search search" aria-hidden="true"></i></li>
+                <li>
+                    <span id="user-name-large" style="margin-right: 10px; font-weight: bold;">
+                        {% if user.is_authenticated %}{{ user.username }}{% endif %}
+                    </span>
+                    {% if user.is_authenticated %}
+                        <form action="{% url 'logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="sign-in-btn">Sign out</button>
+                        </form>
+                    {% else %}
+                        <button class="sign-in-btn" onclick="window.location.href='{% url 'signin' %}'">Sign in</button>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
 
     <div class="container">
         <h2>Add a New Book</h2>

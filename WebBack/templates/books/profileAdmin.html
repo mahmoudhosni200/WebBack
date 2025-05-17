@@ -14,55 +14,35 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/ScrollBar.css' %}">
     <link rel="stylesheet" href="{% static 'css/profileStyle.css' %}">
-    <link rel="stylesheet" href="{% static 'css/navStyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
     <link rel="stylesheet" href="{% static 'css/searchButtonAll.css' %}">
 </head>
 <body>
-    {% comment %} <nav class="nav-large">
-        <div class="nav-logo">
-            <a href="{% url 'home_admin' %}">Library</a>
-        </div>
-        <ul class="nav-links">
-            <li><a href="{% url 'home_admin' %}">Home</a></li>
-            <li><a href="{% url 'admin_books' %}">Books</a></li>
-            <li><a href="{% url 'add_book' %}">ADD</a></li>
-            <li><a href="{% url 'admin_profile' %}">Profile</a></li>
-            <li><i class="fa fa-search search" aria-hidden="true"></i></li>
-            <li>
-                <span style="margin-right: 10px; font-weight: bold;">{{ admin.username }}</span>
-                <form action="{% url 'logout' %}" method="post">{% csrf_token %}
-                    <button type="submit" class="sign-in-btn">Logout</button>
-                </form>
-            </li>
-        </ul>
-    </nav> {% endcomment %}
-
-    {% comment %} <nav class="nav-small">
-        <div class="nav-logo">
-            <a href="{% url 'home_admin' %}">Library</a>
-        </div>
-        <button class="menu-toggle" id="menuToggle">
-            <i class="fa fa-bars"></i>
-        </button>
-        <div class="side-menu" id="sideMenu">
-            <button class="close-menu" id="closeMenu">
-                <i class="fa fa-times"></i>
-            </button>
+    <nav class="nav-large">
+            <div class="nav-logo">
+                <a href="#">Library</a>
+            </div>
             <ul class="nav-links">
-                <li><a href="{% url 'home_admin' %}" class="active">Home</a></li>
-                <li><a href="{% url 'admin_books' %}">Books</a></li>
-                <li><a href="{% url 'add_book' %}">ADD</a></li>
+                <li><a href="{% url 'homeAdmin' %}">Home</a></li>
+                <li><a href="{% url 'list_books_admin' %}">Books</a></li>
+                <li><a href="{% url 'addBook' %}">ADD</a></li>
                 <li><a href="{% url 'admin_profile' %}">Profile</a></li>
                 <li><i class="fa fa-search search" aria-hidden="true"></i></li>
                 <li>
-                    <span style="margin-right: 10px; font-weight: bold;">{{ admin.username }}</span>
-                    <form action="{% url 'logout' %}" method="post">{% csrf_token %}
-                        <button type="submit" class="sign-in-btn">Logout</button>
-                    </form>
+                    <span id="user-name-large" style="margin-right: 10px; font-weight: bold;">
+                        {% if user.is_authenticated %}{{ user.username }}{% endif %}
+                    </span>
+                    {% if user.is_authenticated %}
+                        <form action="{% url 'logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="sign-in-btn">Sign out</button>
+                        </form>
+                    {% else %}
+                        <button class="sign-in-btn" onclick="window.location.href='{% url 'signin' %}'">Sign in</button>
+                    {% endif %}
                 </li>
             </ul>
-        </div>
-    </nav> {% endcomment %}
+        </nav>
 
     <div class="profile section">
         <div class="right">

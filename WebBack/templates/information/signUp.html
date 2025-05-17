@@ -19,10 +19,22 @@
 <body>
 
     {% if messages %}
-        {% for message in messages %}
-            <div style="color: red;">{{ message }}</div>
-        {% endfor %}
-    {% endif %}
+<script>
+    {% for message in messages %}
+        let msg = "{{ message|escapejs }}";
+        if (msg.includes("username")) msg = "Please enter a valid username.";
+        else if (msg.includes("email")) msg = "Please enter a valid email address.";
+        else if (msg.includes("password")) msg = "Please check your password input.";
+        else if (msg.includes("confirm")) msg = "Make sure your passwords match.";
+        else if (msg.includes("Error: UNIQUE constraint failed: information_member.name")) msg = "This username or email is already taken.";
+        else if (msg.includes("required")) msg = "Please fill out all required fields.";
+
+        alert(msg);
+    {% endfor %}
+</script>
+{% endif %}
+
+
 
     <div class="section">
         <div class="inner-section">

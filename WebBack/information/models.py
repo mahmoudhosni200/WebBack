@@ -32,7 +32,7 @@ class MemberManager(BaseUserManager):
 
 class Member(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     # phone_number = models.CharField(max_length=15, unique=True)
     membership_date = models.DateField(auto_now_add=True)
     # membership_type = models.CharField(max_length=50)

@@ -188,10 +188,17 @@
                 <li><a href="{% url 'user_profile' %}">Profile</a></li>
                 <li><i class="fa fa-search search" aria-hidden="true"></i></li>
                 <li>
-                    <span id="user-name-large" style="margin-right: 10px; font-weight: bold;"></span>
-                    <button id="auth-btn-large" class="sign-in-btn" onclick="window.location.href='{% url 'signin' %}'" >Sign in</button>
-                    {% comment %} <a href="{% url 'signin' %}" id="auth-btn-large" class="sign-in-btn">Sign in</a> {% endcomment %}
-
+                    <span id="user-name-large" style="margin-right: 10px; font-weight: bold;">
+                        {% if user.is_authenticated %}{{ user.username }}{% endif %}
+                    </span>
+                    {% if user.is_authenticated %}
+                        <form action="{% url 'logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="sign-in-btn">Sign out</button>
+                        </form>
+                    {% else %}
+                        <button class="sign-in-btn" onclick="window.location.href='{% url 'signin' %}'">Sign in</button>
+                    {% endif %}
                 </li>
             </ul>
         </nav>
