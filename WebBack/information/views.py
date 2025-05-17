@@ -89,3 +89,29 @@ def index_view(request):
 
 def homeAdmin_view(request):
     return render(request, 'information/homeAdmin.html')
+
+
+# CONTACT VIEW
+def contact_view(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        
+        # Validate data
+        if not name or not email or not message:
+            messages.error(request, 'Please fill all the fields.')
+            return redirect('contact')
+            
+        # Save to database
+        contact = Contact.objects.create(
+            name=name,
+            email=email,
+            message=message
+        )
+        
+        # Add success message
+        messages.success(request, 'Your message has been sent successfully!')
+        return redirect('contact')
+    
+    return render(request, 'information/contact.html')
