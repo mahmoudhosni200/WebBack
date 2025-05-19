@@ -28,11 +28,8 @@
         <ul class="nav-links">
             <li><a href="{% url 'index' %}">Home</a></li>
             <li><a href="{% url 'ListUser' %}">Books</a></li>
-            <li><a href = "{%url 'user_profile'%}"> Profile </a></li>
-            <li><a href="#">Contact us</a></li>
-            
-           
-
+                <li><a href = "{% url 'contact' %} ">Contact Us</a></li>
+                <li><a href="{% url 'user_profile' %}">Profile</a></li>
             <li><i class="fa fa-search search" aria-hidden="true"></i></li>
             <li>
                 <span id="user-name-large" style="margin-right: 10px; font-weight: bold;">
