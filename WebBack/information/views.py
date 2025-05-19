@@ -115,27 +115,8 @@ def contact_view(request):
         return redirect('contact')
     
     return render(request, 'information/contact.html')
-# CONTACT VIEW
-def admin_contact_view(request):
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        message = request.POST.get('message')
-        
-        # Validate data
-        if not name or not email or not message:
-            messages.error(request, 'Please fill all the fields.')
-            return redirect('admin_contact')
             
-        # Save to database
-        admin_contact =admin_contact.objects.create(
-            name=name,
-            email=email,
-            message=message
-        )
+     
         
-        # Add success message
-        messages.success(request, 'Your message has been sent successfully!')
-        return redirect('admin_contact')
-    
-    return render(request, 'information/contactAdmin.html')
+        
+       

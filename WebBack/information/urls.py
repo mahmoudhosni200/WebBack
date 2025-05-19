@@ -11,6 +11,6 @@ urlpatterns = [
     path('user/profile/', views.user_profile, name='user_profile'),
     path('user/authunticate/', views.authenticate_member, name='authenticate_user'),
     path('contact/', views.contact_view, name='contact'),
-    path('contactAdmin/',views.admin_contact_view, name = 'admin_contact')
+
 ]
 
