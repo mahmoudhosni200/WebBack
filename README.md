@@ -27,7 +27,3 @@ Developed as part of the **Web technology course** at the
 under the supervision of **Dr. Laila Abdelrahman**.
 
  Created by **Anoud Mohammed**, **Nayera Shaaban**,**Manar Sameh**,**Mahmoud Hosny**, **Mohamed Ashraf**,**Bassam Yasser** .
-
----
-
-Would you like me to make it look **more aesthetic** (like centered title, pastel emojis, badges, or GitHub stats style)? It can look elegant but still professional for your portfolio.
