@@ -8,7 +8,6 @@ A **Django-based backend system** for managing library operations efficiently �
 
 * 🐍 **Python**
 * 🌐 **Django Framework**
-
 ---
 
 ## Key Features
